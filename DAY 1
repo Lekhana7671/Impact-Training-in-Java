@@ -1,0 +1,83 @@
+//Basic Hello World program in java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        System.out.println("Hello world..!");
+    }
+}
+
+//Finding sum of two numbers in java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int sum = a + b;
+        System.out.print(sum);
+    }
+}
+
+//Finding sum of digits of a three digit number
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a 3-digit number: ");
+        int num = sc.nextInt();
+        int first=num/100;
+        int middle = (num / 10) % 10;
+        int last=num%10;
+        int sum=first+middle+last;
+        System.out.println(sum);
+    }
+}
+
+//Finding sum of first and last numbers in a binary number
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a 4-digit binary number: ");
+        int binary = sc.nextInt(); 
+        int lastDigit = binary % 10;
+        int firstDigit = binary / 1000;
+
+        int sum = firstDigit + lastDigit;
+
+        System.out.println("Sum of first and last digits: " + sum);
+    }
+}
+
+//Finding mangoe and orange trees in a garden
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = 5;
+        int cols = 4;
+
+        System.out.print("Enter the tree number (1 to " + (rows * cols) + "): ");
+        int num = sc.nextInt();
+
+        if (num < 1 || num > rows * cols) {
+            System.out.println("Invalid input.");
+        } else {
+            int row = (num - 1) / cols;
+            int col = (num - 1) % cols;
+
+            if (row == 0 || col == 0 || col == cols - 1) {
+                System.out.println("Mongo Tree");
+            } else {
+                System.out.println("Orange Tree");
+            }
+        }
+    }
+}
