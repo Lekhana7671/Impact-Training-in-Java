@@ -1,0 +1,190 @@
+//Reversing a three digit number
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc =new Scanner(System.in);
+		System.out.println("Enter");
+		int num=sc.nextInt();
+		int a=num/100;
+		int b=(num/10)%10;
+		int c=num%10;
+		int reverse=(c*100)+(b*10)+(a*1);
+		System.out.print(reverse);
+	}
+}
+
+//Printing weird, not weird, based on the given conditions
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc =new Scanner(System.in);
+		System.out.println("Enter");
+		int num=sc.nextInt();
+		if(num%2!=0){
+		    System.out.print("Weird");
+		}
+		else if((num%2==0) && (num>=2 && num<=5)){
+		    System.out.print("Not Weird");
+		}
+		else if((num%2==0) && (num>=6 && num<=20)){
+		    System.out.print("Weird");
+		}
+		else if((num%2==0) && (num>20)) {
+		    System.out.print("Not Weird");
+		}
+		else{
+		    System.out.print("Invalid");
+		}
+		
+	}
+}
+
+//printing the trendy number in a three digit number by given condition 
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc =new Scanner(System.in);
+		System.out.println("Enter");
+		int num=sc.nextInt();
+		int a=(num/10)%10;
+		if(a%3==0){
+		    System.out.print("Trendy Number");
+		}
+		else{
+		    System.out.print("Invalid");
+		}
+		
+	}
+}
+
+//Finding the special number by making sum and product and their addition should be the number itself
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter start of range:");
+        int num1 = sc.nextInt();
+        
+        System.out.println("Enter end of range:");
+        int num2 = sc.nextInt();
+        
+        for (int i = num1 + 1; i < num2; i++) { 
+            int a = i / 10;     
+            int b = i % 10;     
+            int sum = a + b;
+            int pro = a * b;
+            if ((sum + pro) == i) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+//Fibinocci series problem 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter");
+        int n = sc.nextInt();
+
+        int a = 0, b = 1, c = 0;
+
+        if (n == 1) {
+            System.out.println(a);
+        } else if (n == 2) {
+            System.out.println(b);
+        } else {
+            for (int i = 3; i <= n; i++) {
+                c = a + b;
+                a = b;
+                b = c;
+            }
+            System.out.println(c);
+        }
+    }
+}
+
+//Finding the treasure in the given three boxes
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter first number (Box 1):");
+        int x = sc.nextInt();
+
+        System.out.println("Enter second number (Box 2):");
+        int y = sc.nextInt();
+
+        System.out.println("Enter third number (Box 3):");
+        int z = sc.nextInt();
+
+        int treasure;
+        if ((x > y && x < z) || (x > z && x < y)) {
+            treasure = x;
+        } else if ((y > x && y < z) || (y > z && y < x)) {
+            treasure = y;
+        } else {
+            treasure = z;
+        }
+
+        System.out.println("The treasure is in the box with number: " + treasure);
+
+        int a = x;
+        int b = y;
+
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        int hcfTwo = a;
+
+        int c = z;
+        while (c != 0) {
+            int temp = c;
+            c = hcfTwo % c;
+            hcfTwo = temp;
+        }
+
+        System.out.println("The Highest Common Factor of all boxes is: " + hcfTwo);
+
+    }
+}
+
+
+//Write a program to calculate the hotel tariff
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int month = sc.nextInt();
+        int rentPerDay = sc.nextInt();
+        int numOfDays = sc.nextInt();
+
+        if (month < 1 || month > 12) {
+            System.out.println("Invalid Input");
+        } else {
+            double tariff = rentPerDay * numOfDays;
+            
+            if ((month >= 4 && month <= 6) || (month == 11 || month == 12)) {
+                tariff *= 1.2; 
+            }
+            System.out.printf("%.2f\n", tariff);
+        }
+
+    }
+}
+
