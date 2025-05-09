@@ -1,0 +1,243 @@
+//Print the following patterns
+a)
+         *
+      *  *  *  
+   *  *  *  *  *            
+*  *  *  *  *  *  *
+
+public class Main {
+     public static void main(String[] args) {
+        int rows = 4;
+        int stars = 1;
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print("   ");
+            }
+            for (int k = 1; k <= stars; k++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+            stars += 2;
+        }
+    }
+}
+
+b) * * * *
+   * * *
+   * *
+   *
+public class Main{
+      public static void main(String[] args){
+          int n=5;
+          for (int i=1;i<=n;i++){
+             for(int j=1;j<=(n-i)+1;j++){
+               
+               System.out.print("*");
+               
+           }
+           System.out.println();
+       } 
+    }
+}
+
+c)  * * * * 
+      * * *
+        * * 
+          *
+public class Main {
+    public static void main(String[] args) {
+        int n = 4;
+        for (int i = 0; i < n; i++) {
+            
+            for (int j = 0; j < i; j++) {
+                System.out.print("  ");
+            }
+
+            for (int k = 0; k < n - i; k++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+d)
+* * * *
+*     *
+*     *
+* * * *
+
+public class Main{
+      public static void main(String[] args){
+          int n=4;
+          for (int i=1;i<=n;i++){
+              
+             for(int j=1;j<=n;j++){
+                 if(i==1|| i==n || j==1 || j==n){
+                    System.out.print("* ");
+                 }
+                 else{
+                     System.out.print("  ");
+                 }
+             }
+             
+            System.out.println();
+       } 
+    }
+}
+
+e)      *    
+       ***   
+      *****  
+     ******* 
+      ***** 
+       *** 
+        *   
+     
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows (half of diamond): ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            
+            for (int j = i; j < n; j++) {
+                System.out.print(" ");
+            }
+            
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int i = n - 1; i >= 1; i--) {
+            
+            for (int j = n; j > i; j--) {
+                System.out.print(" ");
+            }
+        
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+f)  *
+    * *
+    * * *
+    * *
+    *
+
+public class Main {
+    public static void main(String[] args) {
+        int n = 3; 
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Simple java program to print array
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+          Scanner sc= new Scanner(System.in);
+          int n=sc.nextInt();
+          int arr[] =new int[n];
+          for (int i=0;i<n;i++){
+              arr[i]=sc.nextInt();
+              
+              System.out.print(arr[i]+" ");
+          }
+              
+    }
+}
+
+//In an array print even numbers 
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+          Scanner sc= new Scanner(System.in);
+          int n=sc.nextInt();
+          int arr[] =new int[n];
+          for (int i=0;i<n;i++){
+              arr[i]=sc.nextInt();
+              
+              if(arr[i]%2==0){
+                      System.out.print(arr[i]+" ");
+                  }
+              
+          }
+          
+          
+    }
+}
+
+//Print sum of the array elements
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+          Scanner sc= new Scanner(System.in);
+          int n=sc.nextInt();
+          
+          int arr[] =new int[n];
+          int sum=0;
+          for (int i=0;i<n;i++){
+              arr[i]=sc.nextInt();
+              sum=sum+arr[i];
+             
+          }
+         System.out.print(sum); 
+          
+    }
+}
+
+//Write a program to print two arrays and based on the size and the elements print whether the two arrays same or not
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+          Scanner sc= new Scanner(System.in);
+          int n=sc.nextInt();
+          int m=sc.nextInt();
+          
+          int arr[] =new int[n];
+          
+          int sum=0;
+          for (int i=0;i<n;i++){
+              arr[i]=sc.nextInt();
+              sum=sum+arr[i];
+          }
+          System.out.print(sum); 
+          int sum1=0;
+
+          for (int i=0;i<n;i++){
+              arr[i]=sc.nextInt();
+              sum1=sum1+arr[i];
+          }
+          System.out.print(sum1);
+          if(m==n && sum==sum1){
+              System.out.println("same");
+          }
+          else{
+              System.out.print("not same");
+          }
+    }
+}
