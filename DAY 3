@@ -1,0 +1,134 @@
+//Find the nearest multiple of that divisor with the help of the remainder we get and if the distance is same for all the multiple of that divisor we should print the larger value of that based on the given conditionsimport java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt(); 
+        int b = sc.nextInt(); 
+        int q = a / b;
+        int lb = q * b;
+        int ub = (q + 1) * b; 
+
+        int d1 = a - lb;
+        int d2 = ub - a;
+
+        if (d1 == d2) {
+            System.out.println(ub); 
+        } else if (d1 < d2) {
+            System.out.println(lb);
+        } else {
+            System.out.println(ub);
+        }
+    }
+}
+
+//Print the numbers which are divisible by 7 and 9
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner (System.in);
+	    int a= sc.nextInt();
+	    int b=sc.nextInt();
+	    
+	    for (int i=a ; i<=b ; i++){
+	        if(i%7==0 && i%9==0){
+	            System.out.print(i);
+	        }
+	    }
+	    
+	}
+}
+
+//Print every single digit in a given number in a next line
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();  
+
+        while (n != 0) {
+            long r = n % 10;      
+            System.out.println(r);
+            n = n / 10;           
+        }
+    }
+}
+
+//Count the repeating digits in a given number
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner (System.in);
+	    long n= sc.nextLong();
+	    int m = sc .nextInt();
+	    int count=0;
+	    while(n>0){
+	        long i=n%10;
+	        n=n/10;
+	        if(i==m){
+	            count ++;
+	        }
+	        
+	    }
+	    System.out.print(count);
+	  
+	}
+}
+
+//Add the given number until becomes single digit
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        while (n >= 10) {
+            int sum = 0;
+            while (n > 0) {
+                sum += n % 10;  
+                n = n / 10;     
+            }
+            n = sum;  
+        }
+
+        System.out.println(n);
+    }
+}
+
+//Write a program to print adams number
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int square=num*num;
+        int temp=num;
+       
+        int rev=0;
+    
+        while(temp>0){
+            rev=rev*10+temp%10;
+            temp/=10;
+        }
+        int revsquare=rev*rev;
+        int revsquareRev=0;
+        while(revsquare>0){
+            revsquareRev=revsquareRev*10+revsquare%10;
+            revsquare=revsquare/10;
+        }
+        if(square==revsquareRev){
+            System.out.println(num +"Adam");
+        }
+        else{
+            System.out.println(num +"not Adam");
+        }
+        sc.close();
+    }
+    
+}
