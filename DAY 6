@@ -1,0 +1,120 @@
+//Write a program to find it is compatible array or not 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter size of arrays: ");
+        int n = sc.nextInt();
+
+        int[] A = new int[n];
+        int[] B = new int[n];
+
+        System.out.println("Enter elements of first array:");
+        for (int i = 0; i < n; i++) {
+            A[i] = sc.nextInt();
+            System.out.print(A[i] + " ");
+        }
+        
+        System.out.println();
+
+        System.out.println("Enter elements of second array:");
+        for (int i = 0; i < n; i++) {
+            B[i] = sc.nextInt();
+            System.out.print(B[i] + " ");
+        }
+        
+        System.out.println();
+
+        boolean isCompatible = true;
+        for (int i = 0; i < n; i++) {
+            if (A[i] > B[i]) {
+                isCompatible = true;
+                break;
+            }
+        }
+
+        if (isCompatible) {
+            System.out.println("Compatible Arrays");
+        } else {
+            System.out.println("Not Compatible Arrays");
+        }
+
+        sc.close();
+    }
+}
+
+//Inserting an element into the array by taking the target position
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt(); 
+
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int element = sc.nextInt();
+        int pos = sc.nextInt();
+
+        if (pos < 1 || pos > n + 1) {
+            System.out.print("Invalid");
+            return;
+        }
+
+        int[] newArr = new int[n + 1];
+
+        for (int i = 0; i < pos - 1; i++) {
+            newArr[i] = arr[i];
+        }
+
+        newArr[pos - 1] = element;
+
+        for (int i = pos - 1; i < n; i++) {
+            newArr[i + 1] = arr[i];
+        }
+
+        for (int i = 0; i < newArr.length; i++) {
+            System.out.print(newArr[i] + " ");
+        }
+
+    }
+}
+
+//An element z in the array is called "good" if there exist two integers x and y such that
+x^3 + y^3 = z
+import java.util.*;
+import java.lang.*;
+public class Accenture {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int count=0;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=sc.nextInt();
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            int a=arr[i];
+            int x=1;
+            int y=(int)Math.cbrt(a);
+            while(x<y){
+                int res=(int)Math.pow(x,3)+(int)Math.pow(y, 3);
+                if(res<a){
+                    x++;
+                }else if(res==a){
+                    count++;
+                    break;
+                }
+            }  
+        }
+        System.out.println(count);
+    }
+}
+
