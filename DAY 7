@@ -1,0 +1,160 @@
+//Merging two sorted arrays
+import java.util.Scanner;
+public class MergeSortedArrays {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter size of first array: ");
+        int n1 = scanner.nextInt();
+        int[] arr1 = new int[n1];
+        System.out.println("Enter elements of first sorted array:");
+        for (int i = 0; i < n1; i++) {
+            arr1[i] = scanner.nextInt();
+        }
+        System.out.print("Enter size of second array: ");
+        int n2 = scanner.nextInt();
+        int[] arr2 = new int[n2];
+        System.out.println("Enter elements of second sorted array:");
+        for (int i = 0; i < n2; i++) {
+            arr2[i] = scanner.nextInt();
+        }
+        int[] merged = new int[n1 + n2];
+        int i = 0, j = 0, k = 0;
+
+        while (i < n1 && j < n2) {
+            if (arr1[i] < arr2[j]) {
+                merged[k] = arr1[i];
+                i++;
+            } else {
+                merged[k] = arr2[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            merged[k] = arr1[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            merged[k] = arr2[j];
+            j++;
+            k++;
+        }
+        System.out.println("Merged sorted array:");
+        for (int x = 0; x < merged.length; x++) {
+            System.out.print(merged[x] + " ");
+        }
+
+    }
+}
+
+//Finding median of given two sorted arrays
+import java.util.*;
+
+class MergeArray {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter m: ");
+        int m = s.nextInt();
+        int[] num1 = new int[m];
+        System.out.println("Enter num1 values: ");
+        for (int i = 0; i < m; i++) {
+            num1[i] = s.nextInt();
+        }
+
+        System.out.println("Enter n: ");
+        int n = s.nextInt();
+        int[] num2 = new int[n];
+        System.out.println("Enter num2 values: ");
+        for (int i = 0; i < n; i++) {
+            num2[i] = s.nextInt();
+        }
+
+        int[] arr = new int[m + n];
+        int p = 0, i = 0, j = 0;
+
+        while (i < m && j < n) {
+            if (num1[i] < num2[j]) {
+                arr[p++] = num1[i++];
+            } else {
+                arr[p++] = num2[j++];
+            }
+        }
+
+        while (i < m) { 
+            arr[p++] = num1[i++];
+        }
+
+        while (j < n) {
+            arr[p++] = num2[j++];
+        }
+
+        System.out.println("Merged Array:");
+        for (int k = 0; k < m + n; k++) {
+            System.out.print(arr[k] + "\t");
+        }
+
+        System.out.println();
+
+        int total = m + n;
+        if (total % 2 == 0) {
+            double median = (arr[total / 2 - 1] + arr[total / 2]) / 2.0;
+            System.out.println("Median: " + median);
+        } else {
+            System.out.println("Median: " + arr[total / 2]);
+        }
+
+    }
+}
+//Given group sizes and a bus capacity, find the minimum number of buses required to transport all groups without splitting any group and without exceeding the bus capacity.
+import java.util.Scanner;
+
+public class BusGroups {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Enter number of groups: ");
+        int n = scanner.nextInt();
+
+        int[] groups = new int[n];
+        System.out.println("Enter the size of each group:");
+        for (int i = 0; i < n; i++) {
+            groups[i] = scanner.nextInt();
+        }
+
+        
+        System.out.print("Enter the capacity of one bus: ");
+        int m = scanner.nextInt();
+
+        
+        for (int i = 0; i < groups.length; i++) {
+            if (groups[i] > m) {
+                System.out.println("Group " + (i + 1) + " with size " + groups[i] + " exceeds bus capacity.");
+                return;
+            }
+        }
+
+        int buses = 0;
+        int currentLoad = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (currentLoad + groups[i] <= m) {
+                currentLoad += groups[i]; 
+            } else {
+                buses++; 
+                currentLoad = groups[i];
+            }
+        }
+
+        
+        if (currentLoad > 0) {
+            buses++;
+        }
+
+        System.out.println("Minimum number of buses needed: " + buses);
+    }
+}
