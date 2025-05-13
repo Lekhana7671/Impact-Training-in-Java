@@ -1,0 +1,100 @@
+//Maximum height and weight of a person in an array
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); 
+        int[] arr = new int[2 * n];
+
+        for (int i = 0; i < 2 * n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int maxH = 0; 
+        int maxW = 0;
+        int hIndex = 0; 
+        int wIndex = 0;
+
+        for (int i = 0; i < 2 * n; i += 2) {
+            int height = arr[i];
+            int weight = arr[i + 1];
+
+            if (height > maxH) {
+                maxH = height;
+                hIndex = i / 2 + 1;
+            }
+
+            if (weight > maxW) {
+                maxW = weight;
+                wIndex = i / 2 + 1;
+            }
+        }
+
+        System.out.println(hIndex + " " + wIndex);
+    }
+}
+
+//In an array print first even numbers and then odd numbers
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements:");
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        System.out.println("Even numbers first, then odd numbers:");
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] % 2 == 0) {
+                System.out.print(arr[i] + " ");
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] % 2 != 0) {
+                System.out.print(arr[i] + " ");
+            }
+        }
+    }
+}
+
+//Maximum and minimum capacity of an oil containers
+import java.util.*;
+
+public class ContainerPairing {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of containers: ");
+        int n = scanner.nextInt();
+        int[] containers = new int[n];
+
+        System.out.println("Enter the capacities:");
+        for (int i = 0; i < n; i++) {
+            containers[i] = scanner.nextInt();
+        }
+
+        Arrays.sort(containers);
+
+        System.out.println("Container pairs (max with min):");
+        for (int i = 0; i < n / 2; i++) {
+            int max = containers[n - 1 - i];
+            int min = containers[i];
+            System.out.println("(" + max + ", " + min + ")");
+        }
+
+        if (n % 2 != 0) {
+            System.out.println("Unpaired container: " + containers[n / 2]);
+        }
+    }
+}
