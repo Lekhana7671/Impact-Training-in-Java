@@ -1,0 +1,61 @@
+//Find the missing smallest positive integer in an array
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            
+        }
+        int temp=1;
+        for(int i=0;i<n;i++){
+            if(arr[i]==temp){
+                temp++;
+                i=0;
+            }
+        }
+        System.out.println(temp);
+        
+    }
+}
+
+//Print 1s first and then 0s second by treating it as an integer
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            int ones = 0, zeros = 0;
+
+            
+            for (int j = 0; j < 7; j++) {
+                int val = sc.nextInt();
+                if (val == 1) ones++;
+                else if (val == 0) zeros++;
+            }
+
+            
+            for (int j = 0; j < ones; j++) {
+                System.out.print("1 ");
+            }
+
+            
+            for (int j = 0; j < zeros; j++) {
+                System.out.print("0 ");
+            }
+
+            System.out.println(); 
+        }
+
+    }
+}
+
