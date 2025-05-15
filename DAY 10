@@ -1,0 +1,102 @@
+//Addition of two arrays output as an array format only
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[] arr1 = new int[n];
+        int[] arr2 = new int[m];
+
+        for (int i = 0; i < n; i++) {
+            arr1[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < m; i++) {
+            arr2[i] = sc.nextInt();
+        }
+
+        int num1 = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            num1 = num1 * 10 + arr1[i];
+        }
+
+        int num2 = 0;
+        for (int i = m - 1; i >= 0; i--) {
+            num2 = num2 * 10 + arr2[i];
+        }
+
+        int sum = num1 + num2;
+
+        int[] result = new int[20]; 
+        int index = 0;
+
+        if (sum == 0) {
+            result[index++] = 0;
+        } else {
+            while (sum > 0) {
+                result[index++] = sum % 10; 
+                sum = sum / 10;             
+            }
+        }
+
+        System.out.print("[");
+        for (int i = 0; i < index; i++) {
+            System.out.print(result[i]);
+            if (i != index - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+}
+
+//Finding majority of the element in an array
+import java.util.Scanner;
+public class Main{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int arr[] = new int[n];
+    for(int i=0;i<n;i++){
+      arr[i] = sc.nextInt();
+    }
+    int count = 0;
+    int candidate = 0;
+    for(int num : arr){
+      if(count == 0){
+        candidate = num;
+      }
+      count += (num == candidate) ? 1:-1;
+    }
+    System.out.printl4.	Converting binary number to decimaln(candidate);
+  }  
+}
+
+//Converting binary number to decimal
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a binary number: ");
+        String binary = sc.next(); 
+
+        int decimal = 0;
+        int power = 0;
+
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            char bit = binary.charAt(i);
+            if (bit == '1') {
+                decimal += Math.pow(2, power);
+            }
+            power++;
+        }
+
+        System.out.println("Decimal equivalent: " + decimal);
+    }
+}
