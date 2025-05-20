@@ -1,0 +1,103 @@
+//Count of repeating letter in a string
+public class Main {
+    public static void main(String[] args) {
+        String name = "pappabap";
+        char target = 'p'; 
+        int count = 0;
+
+        char[] arr = name.toCharArray();
+
+        
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+        }
+
+        
+         for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                count++;
+            }
+        }
+
+        System.out.println("\nFrequency of '" + target + "' is: " + count);
+    }
+}
+
+//Checking palindrome
+package Day13;
+import java.util.*;
+import java.lang.*;
+public class palindrome {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String original=sc.nextLine();
+        String s=original.toLowerCase();
+        String temp=s;
+        String res="";
+        for (int i = s.length()-1; i >= 0; i--) {
+            res=res+s.charAt(i);
+        }
+        if(res.equals(s)){
+            System.out.println("Palindrome");
+        }else{
+            System.out.println("Not a palindrome");
+        }
+    }
+    
+}
+
+//Finding count of vowels in an array
+package Day13;
+
+import java.util.*;
+import java.lang.*;
+
+public class vowelcount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String vowels="aeiouAEIOU";
+        int vowel_count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (vowels.contains(String.valueOf(s.charAt(i)))){  
+                vowel_count++;
+            }
+        }
+
+        System.out.println(vowel_count);
+    }
+
+}
+
+//Finding smallest missing letter in a string
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine().toLowerCase();  
+        boolean[] present = new boolean[26];
+        
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i); 
+
+    
+            if (ch >= 'a' && ch <= 'z') {
+                int index = ch - 'a';   
+                present[index] = true;  
+            }
+        }
+
+        for (int i = 0; i < 26; i++) {
+            if (!present[i]) {
+                char missing = (char) ('a' + i);
+                System.out.println("Smallest missing letter: " + missing);
+                return;
+            }
+        }
+
+        System.out.println("All letters a-z are present!");
+    }
+}
