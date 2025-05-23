@@ -1,0 +1,211 @@
+//Interchanging the string
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String input = s.nextLine();
+        char[] arr = input.toCharArray();
+
+        for (int i = 0; i < arr.length - 1; i += 2) {
+            char temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+        }
+
+        System.out.println(new String(arr));
+    }
+}
+
+//Count of numbers in a string
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String input = s.nextLine();
+        int sum = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isDigit(ch)) {
+                sum += ch - '0';  
+            }
+        }
+
+        System.out.println(sum);
+    }
+}
+
+//By taking two inputs removing word in a string having same in both and print the remaining string 
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        String first = s.nextLine();  
+        String second = s.nextLine();  
+
+        int i = 0;
+        
+        while (i < first.length() && i < second.length() && first.charAt(i) == second.charAt(i)) {
+            i++;
+        }
+
+        System.out.println(second.substring(i));
+    }
+}
+
+//Finding transpose in a 2d array
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        int rows = s.nextInt();
+        int cols = s.nextInt();
+
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = s.nextInt();
+            }
+        }
+
+        int[][] transpose = new int[cols][rows];
+        for (int i = 0; i < cols; i++) {
+            for (int j = 0; j < rows; j++) {
+                transpose[i][j] = matrix[j][i];
+            }
+        }
+
+        System.out.println("Transpose of the matrix:");
+        for (int i = 0; i < cols; i++) {
+            for (int j = 0; j < rows; j++) {
+                System.out.print(transpose[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Finding upper triangular matrix in a 2d array
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        int n = s.nextInt();
+        int[][] matrix = new int[n][n];
+        
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = s.nextInt();
+            }
+        }
+
+        boolean isUpperTriangular = true;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (matrix[i][j] != 0) {
+                    isUpperTriangular = false;
+                    break;
+                }
+            }
+        }
+
+        if (isUpperTriangular) {
+            System.out.println("It is an upper triangular matrix");
+        } else {
+            System.out.println("It is not an upper triangular matrix");
+        }
+    }
+}
+
+//Finding max in a row and column in a 2d array
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        int rows = s.nextInt();
+        int cols = s.nextInt();
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = s.nextInt();
+            }
+        }
+
+        System.out.println("Maximum in each row:");
+        for (int i = 0; i < rows; i++) {
+            int max = matrix[i][0];
+            for (int j = 1; j < cols; j++) {
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                }
+            }
+            System.out.println("Row " + (i + 1) + " max: " + max);
+        }
+
+        System.out.println("Maximum in each column:");
+        for (int j = 0; j < cols; j++) {
+            int max = matrix[0][j];
+            for (int i = 1; i < rows; i++) {
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                }
+            }
+            System.out.println("Column " + (j + 1) + " max: " + max);
+        }
+    }
+}
+
+//Finding sum of rows and columns in a 2d array
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        int rows = s.nextInt();
+        int cols = s.nextInt();
+
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = s.nextInt();
+            }
+        }
+        
+        System.out.println("Sum of each row:");
+        for (int i = 0; i < rows; i++) {
+            int rowSum = 0;
+            for (int j = 0; j < cols; j++) {
+                rowSum += matrix[i][j];
+            }
+            System.out.println("Row " + (i + 1) + ": " + rowSum);
+        }
+
+        System.out.println("Sum of each column:");
+        for (int j = 0; j < cols; j++) {
+            int colSum = 0;
+            for (int i = 0; i < rows; i++) {
+                colSum += matrix[i][j];
+            }
+            System.out.println("Column " + (j + 1) + ": " + colSum);
+        }
+    }
+}
+
+
