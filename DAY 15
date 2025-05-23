@@ -1,0 +1,50 @@
+//Finding the non repeating letter in a string
+import java.util.*;
+class NonRepeating {
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        String str = s.nextLine();
+        String str2 = "";
+        for (int i = 0; i < str.length(); i++) {
+            char n = str.charAt(i);
+            if (str.indexOf(n) == str.lastIndexOf(n)){
+                System.out.println(n);
+                break;
+            }
+        }
+    }
+}
+
+//Finding smallest missing letter in a string
+import java.util.*;
+
+class SmallMissingLetter {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String str = s.nextLine();
+        String chars = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < chars.length(); i++) {
+            char n = chars.charAt(i);
+            if (str.indexOf(n) == -1) {
+                System.out.println(n);
+                break;
+            }
+        }
+    }
+}
+
+//Reverse the given string
+import java.util.*;
+class Reverse {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String str = s.nextLine();
+        String reverse = "";
+        for (int i = str.length()-1; i >= 0; i--) {
+            reverse = reverse+str.charAt(i);
+        }
+        System.out.println(reverse);
+    }
+}
+
+
